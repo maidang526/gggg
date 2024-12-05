@@ -1,8 +1,24 @@
 'use client';
 import Link from 'next/link';
 
+interface IconProps {
+  className?: string;
+  'aria-hidden'?: boolean;
+}
+
+interface NavigationItem {
+  name: string;
+  href: string;
+  icon?: (props: IconProps) => JSX.Element;
+}
+
+interface Navigation {
+  main: NavigationItem[];
+  social: NavigationItem[];
+}
+
 export default function Footer() {
-  const navigation = {
+  const navigation: Navigation = {
     main: [
       { name: '关于我们', href: '/about' },
       { name: '我们的行动', href: '/campaigns' },
@@ -14,7 +30,7 @@ export default function Footer() {
       {
         name: '微博',
         href: '#',
-        icon: (props: any) => (
+        icon: (props: IconProps) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path d="M20.194 14.32c-.435-.898-1.756-1.482-3.42-1.482-1.664 0-2.985.584-3.42 1.482-.435.898.435 1.482 3.42 1.482 2.985 0 3.855-.584 3.42-1.482zM9.032 13.446c-1.664 0-2.985.584-3.42 1.482-.435.898.435 1.482 3.42 1.482 2.985 0 3.855-.584 3.42-1.482-.435-.898-1.756-1.482-3.42-1.482z" />
           </svg>
@@ -23,7 +39,7 @@ export default function Footer() {
       {
         name: '微信',
         href: '#',
-        icon: (props: any) => (
+        icon: (props: IconProps) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path d="M8.516 13.545c-.865 0-1.567-.702-1.567-1.567s.702-1.567 1.567-1.567 1.567.702 1.567 1.567-.702 1.567-1.567 1.567zm6.968 0c-.865 0-1.567-.702-1.567-1.567s.702-1.567 1.567-1.567 1.567.702 1.567 1.567-.702 1.567-1.567 1.567z" />
           </svg>
