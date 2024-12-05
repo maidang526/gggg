@@ -72,6 +72,7 @@ export default function OptimizedImage({
   const imageComponent = (
     <Image
       {...props}
+      alt={props.alt || ''}
       fill={fill}
       width={!fill ? width : undefined}
       height={!fill ? height : undefined}
